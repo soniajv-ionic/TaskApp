@@ -87,9 +87,7 @@ export class TaskAddPage implements OnInit {
     newTask: ITask = {}; // Creamos un objeto de tipo ITask
 
     // Llamamos al servicio para agregar la tarea
-    this.taskManagerService.addTask(newTask);
-    console.log('Tarea agregada:', newTask);
-    console.log('Tareas:', this.taskManagerService.getTasks());
+    this.taskManagerService.addTask(newTask)
 
     // Opcional: Reseteamos los campos del formulario después de agregar la tarea
     this.resetForm();
@@ -97,10 +95,10 @@ export class TaskAddPage implements OnInit {
 
   // Método para resetear el formulario
   resetForm() {
-    // this.taskName = '';
-    // this.taskDescription = '';
-    // this.taskPriority = 'low';
-    // this.taskDeadline = '';
-    // this.taskDone = false;
+    this.taskName = '';
+    this.taskDescription = '';
+    this.taskPriority = 'low';
+    this.taskDeadline = '';
+    this.taskDone = false;
   }
 }
