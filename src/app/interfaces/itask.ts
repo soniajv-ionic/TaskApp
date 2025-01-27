@@ -3,7 +3,7 @@ export interface ITask {
   description?: string;
   priority?: Priority;
   deadline?: string;
-  done?: 'Done' | 'Not done' | 'In progress';
+  status?: 'Done' | 'Not done' | 'In progress';
 }
 
 export enum Priority {

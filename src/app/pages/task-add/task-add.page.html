@@ -40,6 +40,7 @@
         label="Description"
         placeholder="Enter description"
         [(ngModel)]="task.description"
+        [clearInput]="true"
         labelPlacement="stacked"
         [clearInput]="true"
         value="Default value"
@@ -78,7 +79,7 @@
 
     <!-- Task Done -->
 
-    <ion-radio-group [(ngModel)]="task.done">
+    <ion-radio-group [(ngModel)]="task.status">
       <ion-list>
         <ion-item lines="none">
           <ion-radio slot="end" value="Done"></ion-radio>

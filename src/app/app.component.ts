@@ -75,7 +75,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Add Task', url: '/task-add', icon: 'create' },
     { title: 'All Tasks', url: '/task-all', icon: 'list' },
-    { title: 'Search', url: '/folder/favorites', icon: 'search-circle' },
+    { title: 'Search', url: '/task-search', icon: 'search-circle' },
     {
       title: 'About this App',
       url: '/task-about',

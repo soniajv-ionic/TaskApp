@@ -10,18 +10,8 @@
 
   <ion-content>
     <ion-list>
-      @for (task of tasks; track task) {
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>{{ task.name }}</ion-card-title>
-          <ion-card-subtitle>{{ task.description }}</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-          <p>Deadline: {{ task.deadline }}</p>
-          <p>Status: {{ task.done }}</p>
-        </ion-card-content>
-      </ion-card>
+      @for (t of tasks; track t) {
+        <app-task-component [task]="t" class="full-width"></app-task-component>
       }
     </ion-list>
   </ion-content>

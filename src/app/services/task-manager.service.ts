@@ -1,4 +1,5 @@
-import { inject, Injectable } from '@angular/core';
+import { 
+  Injectable } from '@angular/core';
 import { ITask, Priority } from '../interfaces/itask';
 
 @Injectable({
@@ -12,7 +13,7 @@ export class TaskManagerService {
     description: 'Pintar la casa',
     deadline: '31/01/2025',
     priority: Priority.HIGH,
-    done: 'Not done',
+    status: 'Not done',
   };
 
   task2: ITask = {
@@ -20,7 +21,7 @@ export class TaskManagerService {
     description: 'Lavar el coche',
     deadline: '01/03/2026',
     priority: Priority.LOW,
-    done: 'Not done',
+    status: 'Not done',
   };
 
   constructor() {
@@ -29,7 +30,7 @@ export class TaskManagerService {
   }
 
   addTask(task: ITask) {
-    this.tasks.push(task);
+    this.tasks.push({...task});
   }
 
   getTasks() {

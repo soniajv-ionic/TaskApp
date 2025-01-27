@@ -49,7 +49,7 @@ export class TaskAddPage implements OnInit {
       name: '',
       description: '',
       priority: Priority.LOW,
-      done: 'Not done',
+      status: 'Not done',
       deadline: new Date().toISOString(),
     };
   }
