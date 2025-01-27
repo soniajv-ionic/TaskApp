@@ -1,23 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ITask, Priority } from 'src/app/interfaces/itask';
 import { IonicModule } from '@ionic/angular';
-
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-task-component',
   templateUrl: './task-component.component.html',
   styleUrls: ['./task-component.component.scss'],
-  imports: [IonicModule]
+  imports: [IonicModule, NgClass, NgStyle],
 })
 export class TaskComponentComponent implements OnInit {
-  @Input() task: ITask = {}
-  styleStatus = {}
-  styleNotDone = {color: 'red'}
-  styleInProgress = {color: 'orange'}
-  styleDone = {color: 'green'}
+  @Input() task: ITask = {};
+
+  // ngStyle
+  styleStatus = {};
+  styleNotDone = { color: 'red' };
+  styleInProgress = { color: 'blue' };
+  styleDone = { color: 'green' };
+  // ngClass
   typePriority = '';
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     switch (this.task.status) {
@@ -44,5 +47,4 @@ export class TaskComponentComponent implements OnInit {
         break;
     }
   }
-
 }

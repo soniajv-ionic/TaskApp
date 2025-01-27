@@ -1,106 +1,107 @@
-<ion-content [fullscreen]="true">
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Add Task</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Task</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <!-- <ion-header collapse="condense">
+<!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Add Task</ion-title>
     </ion-toolbar>
   </ion-header> -->
 
-  <ion-content [fullscreen]="true">
-    <!-- Task name -->
-    <ion-item class="section">
-      <ion-input
-        label="Name"
-        placeholder="Enter name"
-        [(ngModel)]="task.name"
-        labelPlacement="stacked"
-        [clearInput]="true"
-        value="Default value"
-      >
-        <!-- [clearInput]="true": Muestra un pequeño botón que borra
+<ion-content [fullscreen]="true">
+  <!-- Task name -->
+  <ion-item class="section">
+    <ion-input
+      label="Name"
+      placeholder="Enter name"
+      [(ngModel)]="task.name"
+      labelPlacement="stacked"
+      [clearInput]="true"
+    >
+      <!-- [clearInput]="true": Muestra un pequeño botón que borra
         el contenido del campo con un solo click. -->
-        <!-- labelPlacement="stacked": Define la posición de la etiqueta con respecto al campo de entrada.
+      <!-- labelPlacement="stacked": Define la posición de la etiqueta con respecto al campo de entrada.
         stacked: La etiqueta se coloca sobre el campo de entrada.
         floating, la etiqueta flota sobre el campo.
         fixed, la etiqueta está fija al lado del campo. -->
-      </ion-input>
-    </ion-item>
+    </ion-input>
+  </ion-item>
 
-    <!-- Task description -->
-    <ion-item class="section">
-      <ion-input
-        label="Description"
-        placeholder="Enter description"
-        [(ngModel)]="task.description"
-        [clearInput]="true"
-        labelPlacement="stacked"
-        [clearInput]="true"
-        value="Default value"
-      >
-      </ion-input>
-    </ion-item>
-
-    <!-- Task deadline -->
-    <ion-item class="section">
-      <ion-label>Deadline</ion-label>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
-      <ion-modal [keepContentsMounted]="true">
-        <ng-template>
-          <ion-datetime
-            id="datetime"
-            presentation="date"
-            [(ngModel)]="task.deadline"
-          ></ion-datetime>
-        </ng-template>
-      </ion-modal>
-    </ion-item>
-
-    <!-- Task priority -->
-    <ion-item class="section">
-      <ion-label>Priority</ion-label>
-      <ion-select
-        [(ngModel)]="task.priority"
-        placeholder="Enter priority"
-        interface="popover"
-      >
-        <ion-select-option value="low">Low</ion-select-option>
-        <ion-select-option value="medium">Medium</ion-select-option>
-        <ion-select-option value="high">High</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <!-- Task Done -->
-
-    <ion-radio-group [(ngModel)]="task.status">
-      <ion-list>
-        <ion-item lines="none">
-          <ion-radio slot="end" value="Done"></ion-radio>
-          <ion-label>Done</ion-label>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-radio slot="end" value="In progress"></ion-radio>
-          <ion-label>In progress</ion-label>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-radio slot="end" value="Not done"></ion-radio>
-          <ion-label>Not done</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-radio-group>
-
-    <!-- Submit button -->
-    <ion-button (click)="submitTask()" expand="block">
-      <ion-icon name="star-outline" slot="start"></ion-icon>
-
-      Submit</ion-button
+  <!-- Task description -->
+  <ion-item class="section">
+    <ion-input
+      label="Description"
+      placeholder="Enter description"
+      [(ngModel)]="task.description"
+      [clearInput]="true"
+      labelPlacement="stacked"
+      value="Default value"
     >
-  </ion-content>
+    </ion-input>
+  </ion-item>
+
+  <!-- Task deadline -->
+  <ion-item class="section">
+    <ion-label>Deadline</ion-label>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime
+          id="datetime"
+          presentation="date"
+          [(ngModel)]="task.deadline"
+        ></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+
+  <!-- Task priority -->
+  <ion-item class="section">
+    <ion-label>Priority</ion-label>
+    <ion-select
+      [(ngModel)]="task.priority"
+      placeholder="Enter priority"
+      interface="popover"
+    >
+      <ion-select-option value="low">Low</ion-select-option>
+      <ion-select-option value="medium">Medium</ion-select-option>
+      <ion-select-option value="high">High</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <!-- Task Done -->
+  <!-- <ion-radio-group [(ngModel)]="task.status">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-radio slot="end" value="Done"></ion-radio>
+        <ion-label>Done</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-radio slot="end" value="In progress"></ion-radio>
+        <ion-label>In progress</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-radio slot="end" value="Not done"></ion-radio>
+        <ion-label>Not done</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-radio-group> -->
+
+  <!-- Submit button -->
+  <ion-button
+    (click)="submitTask()"
+    expand="block"
+    [disabled]="!task.name || !task.description || !task.priority"
+    id="button-submit"
+    size="large"
+  >
+    <ion-icon name="star-outline" slot="start"> </ion-icon>
+
+    Submit</ion-button
+  >
 </ion-content>

@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ITask } from 'src/app/interfaces/itask';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
-import { TaskComponentComponent } from "../../components/task-component/task-component.component";
+import { TaskComponentComponent } from '../../components/task-component/task-component.component';
 
 @Component({
   selector: 'app-task-all',
@@ -37,8 +37,8 @@ import { TaskComponentComponent } from "../../components/task-component/task-com
     IonicModule,
     CommonModule,
     FormsModule,
-    TaskComponentComponent
-],
+    TaskComponentComponent,
+  ],
 })
 export class TaskAllPage implements OnInit {
   tasks: ITask[] = [];

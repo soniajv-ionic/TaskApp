@@ -1,17 +1,18 @@
-<ion-content [fullscreen]="true">
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>All Tasks</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>All Tasks</ion-title>
+    <ion-badge slot="end" id="counter">{{tasks.length}}</ion-badge>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content [fullscreen]="true">
   <ion-content>
     <ion-list>
       @for (t of tasks; track t) {
-        <app-task-component [task]="t" class="full-width"></app-task-component>
+      <app-task-component [task]="t" class="full-width"></app-task-component>
       }
     </ion-list>
   </ion-content>

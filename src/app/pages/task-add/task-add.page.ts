@@ -9,6 +9,16 @@ import { ITask, Priority } from '../../interfaces/itask';
 //   IonHeader,
 //   IonTitle,
 //   IonToolbar,
+//   IonItem,
+//   IonButtons,
+//   IonButton,
+//   IonLabel,
+//   IonModal,
+//   IonSelect,
+//   IonSelectOption,
+//   IonDatetimeButton,
+//   IonMenuButton,
+//   IonIcon,
 // } from '@ionic/angular/standalone';
 
 @Component({
@@ -16,15 +26,21 @@ import { ITask, Priority } from '../../interfaces/itask';
   templateUrl: './task-add.page.html',
   styleUrls: ['./task-add.page.scss'],
   standalone: true,
-  // imports: [
-  //   IonContent,
-  //   IonHeader,
-  //   IonTitle,
-  //   IonToolbar,
-  //   CommonModule,
-  //   FormsModule,
-  // ],
   imports: [
+    // IonContent,
+    // IonHeader,
+    // IonTitle,
+    // IonToolbar,
+    // IonItem,
+    // IonButtons,
+    // IonButton,
+    // IonMenuButton,
+    // IonLabel,
+    // IonModal,
+    // IonSelect,
+    // IonSelectOption,
+    // IonDatetimeButton,
+    // IonIcon,
     CommonModule,
     FormsModule,
     IonicModule, // Incluye módulos necesarios
@@ -35,7 +51,9 @@ export class TaskAddPage implements OnInit {
 
   taskManagerService = inject(TaskManagerService);
 
-  constructor() {}
+  constructor() {
+    this.task.status = 'Not done';
+  }
 
   ngOnInit() {}
 
