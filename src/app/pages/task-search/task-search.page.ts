@@ -23,6 +23,7 @@ import { ITask } from 'src/app/interfaces/itask';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 import { logoIonic } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-task-search',
@@ -51,16 +52,27 @@ import { addIcons } from 'ionicons';
   ],
 })
 export class TaskSearchPage implements OnInit {
+  private activatedRoute = inject(ActivatedRoute);
   searchText: string = '';
   taskManagerService = inject(TaskManagerService);
   tasks = this.taskManagerService.getTasks();
   filteredTasks = this.tasks;
+  priority: string = '';
 
   constructor() {
     addIcons({ logoIonic });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.priority = this.activatedRoute.snapshot.paramMap.get(
+      'priority'
+    ) as string;
+    if (this.priority !== 'All') {
+      this.filteredTasks = this.tasks.filter(
+        (t) => t.priority === this.priority
+      );
+    }
+  }
 
   searchTask() {
     this.filteredTasks = this.tasks.filter((t) =>

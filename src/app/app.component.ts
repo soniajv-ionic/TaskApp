@@ -82,7 +82,11 @@ export class AppComponent {
       icon: 'information-circle',
     },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public labels = [
+    { title: 'High', url: '/task-search/High' },
+    { title: 'Medium', url: 'task-search/Medium' },
+    { title: 'Low', url: '/task-search/Low' },
+  ];
   constructor() {
     addIcons({
       createOutline,
