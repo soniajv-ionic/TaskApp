@@ -48,13 +48,17 @@ import { ITask, Priority } from '../../interfaces/itask';
 })
 export class TaskAddPage implements OnInit {
   task: ITask = {};
-
+  isToastOpen = false;
   taskManagerService = inject(TaskManagerService);
 
   constructor() {
     this.task.status = 'Not done';
   }
 
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
+  
   ngOnInit() {}
 
   submitTask(): void {

@@ -46,7 +46,7 @@
       </ion-item>
       <ion-item-options slot="end">
         <ion-item-option
-          color="warning"
+          color="danger"
           *ngIf="task.status !== 'Not done'"
           (click)="reopenTask(task)"
         >
@@ -60,7 +60,7 @@
           <ion-label>In progress</ion-label>
         </ion-item-option>
         <ion-item-option
-          color="danger"
+          color="success"
           expandable="true"
           *ngIf="task.status !== 'Done'"
           (click)="finishTask(task)"

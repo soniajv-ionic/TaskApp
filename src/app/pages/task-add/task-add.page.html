@@ -104,4 +104,11 @@
 
     Submit</ion-button
   >
+
+<ion-toast
+  trigger="button-submit"
+  message="Task added successfully"
+  [duration]="3000"
+  (didDismiss)="setOpen(false)"
+></ion-toast>
 </ion-content>

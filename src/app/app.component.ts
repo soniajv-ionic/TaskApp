@@ -82,7 +82,8 @@ export class AppComponent {
       icon: 'information-circle',
     },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public labels = ['High', 'Medium', 'Low'
+  ];
   constructor() {
     addIcons({
       createOutline,

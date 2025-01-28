@@ -31,7 +31,7 @@ export class TaskSplashScreenPage implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.navCtrl.navigateForward('task-add');
+      this.navCtrl.navigateForward('task-all');
     }, 3000); // 3000 ms = 3 segundos
   }
 }
