@@ -41,12 +41,9 @@ import { TaskComponentComponent } from '../../components/task-component/task-com
   ],
 })
 export class TaskAllPage implements OnInit {
-  tasks: ITask[] = [];
+  taskManagerService = inject(TaskManagerService);
+  tasks = this.taskManagerService.getTasks();
   constructor() {}
 
-  taskManagerService = inject(TaskManagerService);
-
-  ngOnInit() {
-    this.tasks = this.taskManagerService.getTasks();
-  }
+  ngOnInit() {}
 }

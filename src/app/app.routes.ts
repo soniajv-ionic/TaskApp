@@ -40,4 +40,11 @@ export const routes: Routes = [
         (m) => m.TaskSplashScreenPage
       ),
   },
+  {
+    path: 'task-search/:priority',
+    loadComponent: () =>
+      import('./pages/task-search/task-search.page').then(
+        (m) => m.TaskSearchPage
+      ),
+  },
 ];
